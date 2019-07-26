@@ -1,75 +1,48 @@
-import React from "react"
-import { Link } from "gatsby"
-
-import { rhythm, scale } from "../utils/typography"
+import React from 'react'
+import { Link } from 'gatsby'
+import styled from 'styled-components'
 
 class Layout extends React.Component {
   render() {
     const { location, title, children } = this.props
-    const rootPath = `${__PATH_PREFIX__}/`
-    let header
 
-    if (location.pathname === rootPath) {
-      header = (
-        <h1
-          style={{
-            ...scale(1.5),
-            marginBottom: rhythm(1.5),
-            marginTop: 0,
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
-            }}
-            to={`/`}
-          >
-            {title}
-          </Link>
-        </h1>
-      )
-    } else {
-      header = (
-        <h3
-          style={{
-            fontFamily: `Montserrat, sans-serif`,
-            marginTop: 0,
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
-            }}
-            to={`/`}
-          >
-            {title}
-          </Link>
-        </h3>
-      )
-    }
     return (
-      <div
-        style={{
-          marginLeft: `auto`,
-          marginRight: `auto`,
-          maxWidth: rhythm(24),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-        }}
-      >
-        <header>{header}</header>
+      <Wrapper>
+        <Header>
+          <h1>
+            <Link to={`/`}>Stephen</Link>
+          </h1>
+        </Header>
         <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
+        <footer>47.6736469 x -116.7812795</footer>
+      </Wrapper>
     )
   }
 }
 
 export default Layout
+
+const Wrapper = styled.div`
+  background: #1f1f1f;
+  display: flex;
+  flex-direction: row;
+  color: white;
+`
+
+const Header = styled.header`
+  h1,
+  a {
+    color: yellow;
+    font-family: Abril Fatface, serif;
+    text-transform: uppercase;
+    font-weight: 400;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    text-decoration: none;
+    font-size: 80px;
+  }
+`
+
+const Content = styled.main`
+  background: red;
+`
