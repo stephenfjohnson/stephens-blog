@@ -15,48 +15,47 @@ class BlogIndex extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="Stephen's Blog" />
-        <BlogPosts>
-          {posts.map(({ node }) => {
-            const title = node.frontmatter.title || node.fields.slug;
-            const category = node.frontmatter.category || 'Untitled';
+        <HomepageContent>
+          <BlogPosts>
+            {posts.map(({ node }) => {
+              const title = node.frontmatter.title || node.fields.slug;
+              const category = node.frontmatter.category || 'Untitled';
 
-            const year = moment(node.frontmatter.date).format('YY');
-            const monthDay = moment(node.frontmatter.date).format('MM-DD');
-            return (
-              <Post key={node.fields.slug}>
-                <Stamp>
-                  <div className="date-month-day">
-                    <small>{monthDay}</small>
-                  </div>
-                  <div className="date-year">
-                    {/* <small>{node.frontmatter.date}</small> */}
-                    <small>{year}</small>
-                  </div>
-                  <div className="name">
-                    <small>stephen</small>
-                  </div>
-                  <div className="x">
-                    <small>x</small>
-                  </div>
-                </Stamp>
-                <PostText>
-                  <h5>
+              const year = moment(node.frontmatter.date).format('YY');
+              const monthDay = moment(node.frontmatter.date).format('MM-DD');
+              return (
+                <Post key={node.fields.slug}>
+                  <Stamp>
+                    <div className="date-month-day">
+                      <small>{monthDay}</small>
+                    </div>
+                    <div className="date-year">
+                      {/* <small>{node.frontmatter.date}</small> */}
+                      <small>{year}</small>
+                    </div>
+                    <div className="name">
+                      <small>stephen</small>
+                    </div>
+                    <div className="x">
+                      <small>x</small>
+                    </div>
+                  </Stamp>
+                  <PostText>
                     <h5>
-                      {category}
-                      {/* <Link to={category}>{category}</Link> */}
+                      <h5>{category}</h5>
                     </h5>
-                  </h5>
-                  <h3>
-                    <Link to={node.fields.slug}>{title}</Link>
-                  </h3>
-                </PostText>
-              </Post>
-            );
-          })}
-        </BlogPosts>
-        <HighlightWrapper>
-          <h2>Posts</h2>
-        </HighlightWrapper>
+                    <h3>
+                      <Link to={node.fields.slug}>{title}</Link>
+                    </h3>
+                  </PostText>
+                </Post>
+              );
+            })}
+          </BlogPosts>
+          <HighlightWrapper>
+            <h2>Posts</h2>
+          </HighlightWrapper>
+        </HomepageContent>
       </Layout>
     );
   }
@@ -64,9 +63,17 @@ class BlogIndex extends React.Component {
 
 export default BlogIndex;
 
+const HomepageContent = styled.div`
+  display: flex;
+  flex-direction: row;
+  @media only screen and (max-width: 800px) {
+    flex-direction: column-reverse;
+  }
+`;
+
 const BlogPosts = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 `;
 
 const HighlightWrapper = styled.div`
@@ -87,7 +94,10 @@ const Post = styled.div`
   flex-direction: row;
   margin-bottom: 6rem;
   width: 100%;
-  align-items: center;
+  /* align-items: center; */
+  @media only screen and (max-width: 800px) {
+    flex-direction: column;
+  }
 `;
 
 const Stamp = styled.div`
@@ -99,7 +109,9 @@ const Stamp = styled.div`
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   grid-template-areas: 'date-year date-month-day date-month-day date-month-day ' 'name name name x';
-
+  @media only screen and (max-width: 800px) {
+    margin: 2rem 0 3rem 0;
+  }
   div {
     border: 1px solid white;
     display: flex;
