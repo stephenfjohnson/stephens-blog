@@ -1,23 +1,25 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-
-// import TreeBG from '../c';
+import { GlobalStyle } from '../theme/globalStyle';
 
 class Layout extends React.Component {
   render() {
     const { location, title, children } = this.props;
 
     return (
-      <Wrapper>
-        <Header>
-          <h1>
-            <Link to={`/`}>Stephen</Link>
-          </h1>
-        </Header>
-        <Content>{children}</Content>
-        {/* <footer>47.6736469 x -116.7812795</footer> */}
-      </Wrapper>
+      <>
+        <GlobalStyle />
+        <Wrapper>
+          <Header>
+            <h1>
+              <Link to={`/`}>Stephen</Link>
+            </h1>
+          </Header>
+          <Content>{children}</Content>
+          {/* <footer>47.6736469 x -116.7812795</footer> */}
+        </Wrapper>
+      </>
     );
   }
 }
