@@ -55,9 +55,10 @@ const Header = styled.header`
     font-size: 80px;
     box-shadow: none;
     @media only screen and (max-width: 800px) {
+      font-size: 60px;
       writing-mode: horizontal-tb;
       text-orientation: normal;
-      margin: 0;
+      margin: 0 0 2rem 0;
     }
   }
 `;
@@ -71,4 +72,7 @@ const Content = styled.main`
   justify-content: center;
   flex-direction: column;
   width: 100%;
+  @media only screen and (max-width: 800px) {
+    padding: 1rem;
+  }
 `;
