@@ -1,6 +1,7 @@
 ---
 title: Contentful React Native Hook
-date: '2015-05-01T22:12:03.284Z'
+date: '2019-07-19T22:12:03.284Z'
+description: 'Learn how to fetch data from Contentful with React Hooks'
 category: 'React'
 ---
 
