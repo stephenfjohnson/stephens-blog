@@ -35,7 +35,7 @@ const Wrapper = styled.div`
 `;
 
 const Header = styled.header`
-  padding-right: 2rem;
+  /* padding-right: 2rem; */
   h1,
   a {
     color: yellow;
