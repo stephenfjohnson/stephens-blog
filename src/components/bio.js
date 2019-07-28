@@ -55,7 +55,7 @@ const Bio = () => {
       />
       <p>
         Written by <strong>{author}</strong> who lives and works in Coeur d'Alene, ID. If you see
-        ahnyting incorect or just want to keep up with what i am doing.
+        anything incorect or just want to keep up with what i am doing.
         {` `}
         <a href={`https://twitter.com/${social.twitter}`}>Follow me on Twitter!</a>
       </p>
