@@ -34,6 +34,11 @@ const Wrapper = styled.div`
   color: white;
   padding: 6rem 6rem 6rem 2rem;
   min-height: 100vh;
+
+  @media only screen and (max-width: 800px) {
+    flex-direction: column;
+    padding: 2rem;
+  }
 `;
 
 const Header = styled.header`
@@ -49,6 +54,11 @@ const Header = styled.header`
     text-decoration: none;
     font-size: 80px;
     box-shadow: none;
+    @media only screen and (max-width: 800px) {
+      writing-mode: horizontal-tb;
+      text-orientation: normal;
+      margin: 0;
+    }
   }
 `;
 
