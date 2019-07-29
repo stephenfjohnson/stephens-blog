@@ -5,6 +5,7 @@ import moment from 'moment';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
+import Stamp from '../theme/stamp';
 
 class BlogIndex extends React.Component {
   render() {
@@ -25,25 +26,9 @@ class BlogIndex extends React.Component {
               const monthDay = moment(node.frontmatter.date).format('MM-DD');
               return (
                 <Post key={node.fields.slug}>
-                  <Stamp>
-                    <div className="date-month-day">
-                      <small>{monthDay}</small>
-                    </div>
-                    <div className="date-year">
-                      {/* <small>{node.frontmatter.date}</small> */}
-                      <small>{year}</small>
-                    </div>
-                    <div className="name">
-                      <small>stephen</small>
-                    </div>
-                    <div className="x">
-                      <small>x</small>
-                    </div>
-                  </Stamp>
+                  <Stamp monthDay={monthDay} year={year} />
                   <PostText>
-                    <h5>
-                      <h5>{category}</h5>
-                    </h5>
+                    <h5>{category}</h5>
                     <h3>
                       <Link to={node.fields.slug}>{title}</Link>
                     </h3>
@@ -97,49 +82,6 @@ const Post = styled.div`
   /* align-items: center; */
   @media only screen and (max-width: 800px) {
     flex-direction: column;
-  }
-`;
-
-const Stamp = styled.div`
-  margin-right: 2rem;
-  border: 1px solid white;
-  width: 100px;
-  transform: rotate(-40deg);
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  grid-template-areas: 'date-year date-month-day date-month-day date-month-day ' 'name name name x';
-  @media only screen and (max-width: 800px) {
-    margin: 2rem 0 3rem 0;
-  }
-  div {
-    border: 1px solid white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  small {
-    font-family: Montserrat, sans-serif;
-    text-transform: uppercase;
-    text-align: center;
-  }
-
-  .date-month-day {
-    grid-area: date-month-day;
-  }
-
-  .date-year {
-    grid-area: date-year;
-  }
-
-  .name {
-    grid-area: name;
-    /* font-size: 11px; */
-  }
-
-  .x {
-    grid-area: x;
   }
 `;
 

@@ -65,7 +65,7 @@ const Header = styled.header`
 
 const Content = styled.main`
   background: url('/trees.jpeg') no-repeat center top #22272d;
-  background-size: cover;
+  background-size: contain;
   padding: 4rem;
   display: flex;
   align-items: center;
